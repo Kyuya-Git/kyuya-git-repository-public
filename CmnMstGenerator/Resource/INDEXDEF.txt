@@ -1,0 +1,1 @@
+create [UNIQUE]index [TABLENAME]_[KEYNAME] on [TABLENAME]([FIELDS]);;

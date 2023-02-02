@@ -1,0 +1,9 @@
+if exists (select name from sysobjects
+	    where name = '[TABLENAME]' and type = 'U')
+begin
+	   drop table [TABLENAME]
+end;;
+create table [TABLENAME]
+(
+[FIELDDEFINE]
+);;

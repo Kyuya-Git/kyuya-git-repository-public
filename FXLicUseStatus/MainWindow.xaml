@@ -1,0 +1,33 @@
+﻿<Window x:Class="FXLicUseStatus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:FXLicUseStatus.ViewModel"
+        Title="ライセンス利用状況出力ツール" Height="150" Width="400" MinHeight="150" MaxHeight="150" MinWidth="400" MaxWidth="400" Loaded="Window_Loaded">
+    <!--<Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>-->
+    <Grid>
+        <StackPanel Margin="10,10,10,0" Height="22" VerticalAlignment="Top">
+            <ComboBox Name="ComboSeries" 
+                      ItemsSource="{Binding ComboItem}"
+                      SelectedIndex="{Binding ComboSelectedIndex}"
+                      IsEnabled="{Binding ControlEnabled}" />
+        </StackPanel>
+        <Grid Margin="10,33,10,42">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="102*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="出力先パス：" VerticalAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="-5,6,0,6" Width="77"/>
+            <TextBox Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding OutPutPath}" Height="22" Margin="0,4,0,5" IsEnabled="{Binding ControlEnabled}"/>
+        </Grid>
+        <Grid Margin="10,0,10,7" Height="35" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="83*"/>
+                <ColumnDefinition Width="41*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="出力" Margin="0,6" Grid.Column="2" Command="{Binding ExecuteCommand}" IsEnabled="{Binding ControlEnabled}"/>
+            <CheckBox Content="既にファイルが存在する場合は削除する" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" IsChecked="{Binding CheckBoxChecked}" IsEnabled="{Binding ControlEnabled}"/>
+        </Grid>
+    </Grid>
+</Window>
